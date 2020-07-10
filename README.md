@@ -15,3 +15,37 @@
 69-78（字符串，常用算法，KMP算法等）
 79-98（基本算法）
 剩余（图论，计算几何）
+
+1.
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	
+	int a,b,c,t,z;
+
+	scanf("%d%d",&a,&b);
+	z=b;
+	if(b>a)
+	{
+		c=a,a=b,b=c;
+		z=b;
+	}
+
+	for(c=a%b;c!=0;)
+	{
+		if(c>b)
+		{
+			c=c%b;
+		}
+		else
+		{
+			t=c;
+			c=b%c;
+			b=t;
+		}
+	};
+		
+	printf("%d和%d最大公约数%d\n",a,z,b);
+	return 0;
+}
