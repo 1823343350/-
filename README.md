@@ -90,7 +90,9 @@ int main(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
+
 	int a[1000],b[1000];
+
 	int i,k,n,s;
 
 	scanf("%d",&n);
