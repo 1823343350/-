@@ -121,3 +121,44 @@ int main(int argc, char* argv[])
 	return 0;
 } 从1到n，第一个质数是2，然后将n中所有2的倍数删掉，依次将n中所有3的倍数，4的倍数。。。全部删掉，剩下来的就是n以内的素数，我这种做法的缺点是有些数重复删除了。
 
+2.2
+
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+
+	int a[1000],b[1000];
+	int i,k,n,s,t;
+
+	scanf("%d",&n);
+
+	for(i=1;i<=n;i++)
+	{
+		a[i]=i;
+		b[i]=i;
+	}
+
+	b[1]=0;
+
+	for(i=2;i<=n;i=t)
+	{
+		for(k=i+1;k<=n;k++)
+			{
+				s=a[k]%i;
+				if(s==0)
+					b[k]=0;
+			}
+
+		t=i+1;
+		while(b[t]==0)
+			t++;	
+	}
+
+	for(i=1;i<=n;i++)
+		if(b[i]!=0)
+		printf("%d ",b[i]);
+
+	return 0;
+} 这样做就没有重复删除了。
+
