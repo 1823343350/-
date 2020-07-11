@@ -86,3 +86,36 @@ int main(int argc, char* argv[])
 2.2 
 筛法求素数
 
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[1000],b[1000];
+	int i,k,n,s;
+
+	scanf("%d",&n);
+
+	for(i=1;i<=n;i++)
+	{
+		a[i]=i;
+		b[i]=i;
+	}
+
+	b[1]=0;
+
+	for(i=2;i<=n;i++)
+	for(k=i+1;k<=n;k++)
+		{
+			s=a[k]%i;
+			if(s==0)
+				b[k]=0;
+		}
+
+	for(i=1;i<=n;i++)
+		if(b[i]!=0)
+		printf("%d ",b[i]);
+
+
+	return 0;
+}
+
