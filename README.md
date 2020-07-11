@@ -56,6 +56,7 @@ int main(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
+
 	int a[10000],n,i,k,s;
 
 	scanf("%d",&n);
