@@ -51,6 +51,7 @@ int main(int argc, char* argv[])
 }
 
 2.1 普通算法求素数
+
 #include "stdafx.h"
 
 int main(int argc, char* argv[])
@@ -81,3 +82,7 @@ int main(int argc, char* argv[])
 			printf("%d ",a[i]);
 	return 0;
 }
+
+2.2 
+筛法求素数
+
