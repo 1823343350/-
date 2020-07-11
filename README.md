@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-2.1 普通算法求素数
+2.1 普通算法求n以内的素数
 
 #include "stdafx.h"
 
@@ -68,13 +68,12 @@ int main(int argc, char* argv[])
 	for(i=2;i<=n;i++)
 	{
 		s=1;
+		
 		for(k=2;s!=0;k++)
-		{
-			s=a[i]%k;
-			
-		}
+		s=a[i]%k;
+		
 		if(k<a[i])
-			a[i]=0;
+		a[i]=0;
 	}
 
 	for(i=1;i<=n;i++)
