@@ -52,6 +52,7 @@ int main(int argc, char* argv[])
 
 2.1 普通算法求素数
 #include "stdafx.h"
+
 int main(int argc, char* argv[])
 {
 	int a[10000],n,i,k,s;
