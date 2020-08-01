@@ -1,0 +1,70 @@
+4.0逆康托展开
+#include "stdafx.h"
+int jiecheng(int a);
+int nixu(int i,int n,int a[]);
+int main(int argc, char* argv[])
+{
+	int a[20],q[20];
+	int b,c,i;
+	int n,t,k;
+	a[0]=0;
+
+	printf("请输入位数:");
+	scanf("%d",&b);
+	printf("请输入序号:");
+	scanf("%d",&c);
+	c=c-1;
+
+	for(i=1;i<=b;i++)
+		q[i]=i;
+
+	for(i=1;i<b;i++)
+	{
+		n=c/(jiecheng(b-i));
+		c=c%(jiecheng(b-i));
+		a[i]=nixu(i,n,a);
+	}
+
+	for(i=1;i<b;i++)
+	for(k=1;k<=b;k++)
+		if(a[i]==q[k])
+			q[k]=0;
+		
+	for(i=1;i<=b;i++)
+		if(q[i]!=0)
+			a[b]=q[i];
+
+	printf("结果为:");
+	for(i=1;i<=b;i++)
+		printf("%d",a[i]);
+	printf("\n");
+	return 0;
+}
+
+int jiecheng(int a)
+{
+
+	int sum,i;
+	sum=1;
+
+	for(i=1;i<=a;i++)
+	sum=sum*i;
+
+	return sum;
+
+}
+
+int nixu(int i,int n,int a[])
+{
+	int sum;
+	int k;
+	sum=n+1;
+
+	if(i==1)	
+		return sum;	
+	else
+		for(k=1;k<i;k++)
+			if(sum>=a[k])
+				sum++;
+	return sum;
+}
