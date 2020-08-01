@@ -1,4 +1,4 @@
-
+1.欧几里得算法求最大公约数
 #include "stdafx.h"
 
 int main(int argc, char* argv[])
