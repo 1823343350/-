@@ -1,0 +1,94 @@
+3.康托展开
+
+#include "stdafx.h"
+int jiecheng(int a);
+int nixu(int q,int i,int a[]);
+int main(int argc, char* argv[])
+{
+	int a[20];
+	int b;//你所给出的数字
+	int c,e;//判断你所给出的数字有几位
+	int d;
+	int i,k,q;
+	int rank=0;//记录
+
+	a[0]=0;
+
+	scanf("%d",&b);
+	e=b;
+
+	for(c=0;e!=0;c++)//判断是b几位数
+		e=e/10;
+	printf("检查位数%d\n",c);//检查代码
+
+	e=b;
+	for(i=1;i<=c;i++)//将b正向输入进数组
+	{
+		d=e%10;
+		e=e/10;
+		a[c+1-i]=d;}
+	a[c+1]='0';
+
+	for(k=1;k<=c-1;k++)//检查代码,检查是否是全排列
+	for(i=k+1;i<=c;i++)
+		if(a[k]==a[i])
+		{
+			printf("输入的数字并不是某一组数的全排列，无法计算!");
+			return 0;
+		}
+		
+
+	printf("检查是否正确输入");//检查代码
+	for(i=1;i<=c;i++)
+		printf("%d ",a[i]);//检查代码
+	printf("\n");
+
+	for(i=1;i<c;i++)
+	{		
+		q=a[i];
+		rank=rank+(nixu(q,i,a))*(jiecheng(c-i));
+	}
+	
+	printf("%d是第%d个全排列\n",b,rank+1);
+	return 0;
+}
+
+int jiecheng(int a)
+{
+	int i;
+	int sum=1;
+	for(i=1;i<=a;i++)
+		sum=sum*i;
+	return sum;
+}
+
+int nixu(int q,int i,int a[])
+{
+	int c;
+	int k;
+	c=q-1;
+	if(i==1)
+	{
+		return c;
+	}
+
+	else 
+		for(k=1;k<i;k++)
+			if(a[i]>a[k])
+				c--;
+	return c;
+}
+
+流程：输入一个数之后判断这个数是几位数，然后计算是第几个全排列。
+例如 2341，
+          第一个数是2，在2341之前的全排列中第一位数是1的排列都在2341之前，共有1*3！种。
+          第二位数是3，第二位数比3小的有1，2，因为2在第一位，所以只有第一位是2第二位是1的全排列在2341之前，此时又有1*2！种。
+          第三位数是4，第三位数比4小的有1，2，3，因为2，3都用了，所以只有第一位是2，第二位是3，第三位是1的全排列数在2341之前，又有1*1！种。
+          所以共有6+2+1=9种全排列数在2341之前，所以2341是第十位全排列。
+          上面说的都是4位数的全排列，其他位数同理。
+          
+          寻找规律发现
+                    for（i=1;i<位数;i++)
+                      rank=rank+（a）*（b！）;计算后的rank+1就是结果。
+          b用位数来确定，比如在4位数的全排列种，第一位数的b就是4-1=3。第二位数的b就是3-1=2。
+          a用比较来确定，第一位数的a就是a[1]-1。第n位数的a初始值为a[n]-1,然后将a[n]依次与a[1],a[2]...a[n-1]比较，大于一次，a的初始值就减去1。
