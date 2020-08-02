@@ -17,5 +17,4 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-应用：给定数a,b,c,d,其中c,d已知。假设a%c==b%c==d，求a，b；
 
