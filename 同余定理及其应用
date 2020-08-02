@@ -1,0 +1,21 @@
+同余定理
+
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a,b,c;
+	int d,e,f;
+	printf("依次输入:a,b,c\n");
+	scanf("%d%d%d",&a,&b,&c);
+
+	if(a%c==b%c)
+		printf("数a与b对模m同余\n");
+	else
+		printf("数a与b对模m不同余");
+	
+	return 0;
+}
+
+应用：给定数a,b,c,d,其中c,d已知。假设a%c==b%c==d，求a，b；
+
