@@ -31,6 +31,6 @@ int fact(int a,int b,int c)
 		if(b%2==0)	
 			result=result*((fact(a,b/2,c)%c*fact(a,b/2,c)%c)%c);
 		else		
-			result=result*(((a*fact(a,(b-1)/2,c))%c*(a*fact(a,(b-1)/2,c))%c)%c);
+			result=result*(((a%c*fact(a,(b-1)/2,c))%c*(a*fact(a,(b-1)/2,c))%c)%c);
 	}
 }
