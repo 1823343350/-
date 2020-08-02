@@ -1,0 +1,39 @@
+#include "stdafx.h
+
+int main(int argc, char* argv[])
+{
+	double s[3][2];
+	double a[2][2];
+	double sum;
+	int i,k;
+
+	printf("依次输入三点坐标:");
+
+	for(i=0;i<=2;i++)
+	for(k=0;k<=1;k++)
+		scanf("%lf",&s[i][k]);
+
+	for(i=0;i<=2;i++)
+	{
+	printf("\n");
+	for(k=0;k<=1;k++)
+		printf("%.1lf ",s[i][k]);
+	}//检查坐标是否输入正确
+
+	printf("\n");
+
+	a[0][0]=s[1][0]-s[0][0];
+	a[0][1]=s[1][1]-s[0][1];
+	a[1][0]=s[2][0]-s[0][0];
+	a[1][1]=s[2][1]-s[0][1];
+
+	sum=a[0][0]*a[1][1]-a[0][1]*a[1][0];
+
+	if(sum>0)
+		printf("三角形是逆时针的\n");
+	else if(sum<0)
+		printf("三角形是顺时针的\n");
+		else
+			printf("三点共线\n");
+	return 0;
+}
