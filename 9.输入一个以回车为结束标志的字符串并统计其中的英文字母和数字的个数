@@ -25,6 +25,6 @@ int main(int argc, char* argv[])
 			temp++;
 	}
 
-	printf("%d %d\n",count,temp);
+	printf("英文字母的个数为%d 数字的个数为%d\n",count,temp);
 	return 0;
 }
