@@ -1,0 +1,34 @@
+
+给定一个数组 A[0,1,…,n-1]，请构建一个数组 B[0,1,…,n-1]，其中 B 中的元素 B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]。不能使用除法。(以-1作为结束输入的标志)
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[1000],b[1000];
+	int i=0,k,sum,m;
+	
+	do{
+		scanf("%d",&a[i]);
+		i++;
+	}while(a[i-1]!=-1);
+	a[i-1]=1;
+	m=i-1;
+	
+	for(i=0;i<=m;i++)
+	{
+		sum=1;
+		for(k=0;k<=m;k++)
+			if(i!=k)
+				sum=sum*a[k];
+		b[i]=sum;		
+	}
+
+	for(i=0;i<=m-1;i++)
+		printf("%d ",b[i]);
+
+	return 0;
+}
