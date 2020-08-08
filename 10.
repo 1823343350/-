@@ -1,0 +1,36 @@
+一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。(题目下面以-1为结束输入的标志)
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[1000],b[1000];
+	int i=0,k,m;
+
+	do
+	{
+		scanf("%d",&a[i]);
+		i++;
+	}while(a[i-1]!=-1);
+
+	m=i-1;
+
+	for(i=0;i<=m;i++)
+		b[i]=i;
+
+	for(i=0;i<=m;i++)
+	for(k=0;k<=m;k++)
+		if(a[i]==b[k])		
+			b[k]=-2;
+
+	for(i=0;i<=m;i++)
+		if(b[i]!=-2)
+			printf("%d",b[i]);
+
+	printf("\n");
+
+	return 0;
+}
