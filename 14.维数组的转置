@@ -1,0 +1,31 @@
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[3][3];
+	int i,k,temp;
+
+	for(i=0;i<3;i++)
+		for(k=0;k<3;k++)
+			scanf("%d",&a[i][k]);
+	
+	for(i=0;i<3;i++)
+		for(k=0;k<3;k++)
+			if(i<=k)
+		{
+			temp=a[i][k];
+			a[i][k]=a[k][i];
+			a[k][i]=temp;
+		}
+
+	printf("\n");
+
+	for(i=0;i<3;i++)
+	{
+		for(k=0;k<3;k++)
+			printf("%d ",a[i][k]);
+		printf("\n");
+	}
+
+	return 0;
+}
