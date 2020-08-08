@@ -1,0 +1,57 @@
+一维数组的选择排序
+//在n个数中找出最小的数，然后将这个最小的数与第一个数（或者最后一个数）交换，然后在n-1个数中找到最小的数，与第二个数（或者倒数第二个数）交换，以此类推。
+
+//从小到大
+#include "stdafx.h"
+int main(int argc, char* argv[])
+{
+	int a[10];
+	int i,k,temp,min;
+
+	for(i=0;i<10;i++)
+		scanf("%d",&a[i]);
+
+
+	for(i=0;i<9;i++)
+	{
+		min=i;
+		for(k=i;k<10;k++)
+			if(a[min]>a[k])
+				min=k;
+		temp=a[i],a[i]=a[min],a[min]=temp;
+	}
+
+	for(i=0;i<10;i++)
+		printf("%d ",a[i]);
+	printf("\n");
+
+  return 0;
+}
+
+//从大到小
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[10];
+	int i,k,temp,max;
+
+	for(i=0;i<10;i++)
+		scanf("%d",&a[i]);
+
+
+	for(i=0;i<9;i++)
+	{
+		max=i;
+		for(k=i;k<10;k++)
+			if(a[max]<a[k])
+				max=k;
+		temp=a[i],a[i]=a[max],a[max]=temp;
+	}
+
+	for(i=0;i<10;i++)
+		printf("%d ",a[i]);
+	printf("\n");
+
+	return 0;
+}
