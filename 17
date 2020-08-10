@@ -1,0 +1,42 @@
+n阶矩阵向右平移m格
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[10][10],b[10][10];
+	int m,n;
+	int i,j,k;
+	int temp;
+	scanf("%d%d",&m,&n);
+
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++)
+			scanf("%d",&a[i][j]);
+	
+	printf("\n");
+
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+			printf("%d ",a[i][j]);
+		printf("\n");
+	}//检查矩阵
+
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++)
+		{
+			k=(j+m)%n;
+			b[i][k]=a[i][j];
+		}
+
+	printf("\n");
+
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+			printf("%d ",b[i][j]);
+		printf("\n");
+	}
+
+	return 0;
+}
