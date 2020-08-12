@@ -1,0 +1,54 @@
+丑数
+我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。
+
+#include "stdafx.h"
+int main(int argc, char* argv[])
+{
+	int a[101],b[101];
+	int i,k;
+	int m,x,z;
+
+	for(i=0;i<=100;i++)
+		a[i]=i;
+
+	for(i=0;i<=6;i++)
+		b[i]=i;
+
+	for(i=7,k=7;i<100;i++)
+	{
+		x=a[i];
+		do{
+			m=x%2;
+			if(m==0)
+				x=x/2;
+
+		}while(m==0);
+
+		do{
+			m=x%5;
+			if(m==0)
+				x=x/5;
+
+		}while(m==0);
+
+		do{
+			m=x%3;
+			if(m==0)
+				x=x/3;
+
+		}while(m==0);
+	
+		if(x==1)
+		{
+			b[k]=a[i];			
+			k++;
+		}
+	}
+
+  printf("第几个丑数？ ");
+	scanf("%d",&z);
+
+	printf("%d\n",b[z]);
+
+	return b[z];
+}
