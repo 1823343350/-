@@ -1,0 +1,28 @@
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[6][6];
+	int n;
+	int i,k;
+	int temp=0;
+
+	printf("几阶方阵?");
+	scanf("%d",&n);
+
+	for(i=0;i<n;i++)
+		for(k=0;k<n;k++)
+			scanf("%d",&a[i][k]);
+
+	for(i=1;i<n;i++)
+		for(k=0;k<n;k++)
+			if((i>k) && (a[i][k]!=0))
+				temp=1;
+
+	if(temp==1)
+		printf("不是上三角行列阵\n");
+	else
+		printf("是上三角行列阵\n");
+
+	return 0;
+}
