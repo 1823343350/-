@@ -1,5 +1,5 @@
+判断n阶方阵是不是上三角行列阵
 #include "stdafx.h"
-
 int main(int argc, char* argv[])
 {
 	int a[6][6];
