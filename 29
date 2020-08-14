@@ -1,0 +1,24 @@
+//简单加密
+#include "stdafx.h"
+void encrypt(char *s);
+int main(int argc, char* argv[])
+{
+	char line[100];
+	
+	gets(line);
+
+	encrypt(line);
+
+	printf("加密后为:%s\n",line);
+					
+	return 0;
+}
+
+void encrypt(char *s)
+{
+	for(;*s!='\0';s++)
+		if(*s=='z')
+			*s=='a';
+		else
+			*s=*s+1;
+}
