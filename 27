@@ -1,0 +1,19 @@
+//用指针计算一组数的和
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	int a[10];
+	int *p;
+	int sum=0;
+	
+	for(p=a;p<&a[10];p++)
+		scanf("%d",p);
+
+	for(p=a;p<&a[10];p++)
+		sum+=*p;
+	
+	printf("%d\n",sum);
+
+	return 0;
+}
