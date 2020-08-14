@@ -1,4 +1,4 @@
-
+使用指针计算加减法
 #include "stdafx.h"
 void sum_diff(int op1,int op2,int *psum,int *pdiff);
 
