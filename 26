@@ -1,0 +1,24 @@
+
+#include "stdafx.h"
+void sum_diff(int op1,int op2,int *psum,int *pdiff);
+
+int main(int argc, char* argv[])
+{
+	int a,b;
+
+	scanf("%d%d",&a,&b);
+
+	sum_diff(a,b,&a,&b);
+
+	printf("和:%d 差:%d\n",a,b);
+
+	return 0;
+}
+
+void sum_diff(int op1,int op2,int *psum,int *pdiff)
+{
+	int c,d;
+	c=op1+op2,d=op1-op2;
+	*psum=c;
+	*pdiff=d;
+}
