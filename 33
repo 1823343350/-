@@ -1,0 +1,38 @@
+使用动态内存分配的方法实现选择排序(10个数从小到大)
+#include "stdafx.h"
+#include "stdlib.h"
+int main(int argc, char* argv[])
+{
+	int i,k,*p;
+	int temp;
+	int max=0;
+
+	if((p=(int *)calloc(10,sizeof(int)))==NULL)
+	{
+		printf("分配存储空间失败!\n");
+		return 0;
+	}
+
+	printf("请输入十个整数:\n");
+
+	for(i=0;i<10;i++)
+	scanf("%d",p+i);
+
+	for(i=0;i<9;i++)
+	{
+		max=0;
+		for(k=0;k<=9-i;k++)
+			if(p[max]<p[k])
+				max=k;
+				temp=p[9-i];
+				p[9-i]=p[max];
+				p[max]=temp;
+	}
+
+	for(i=0;i<10;i++)
+		printf("%d ",*(p+i));
+
+	printf("\n");
+
+	return 0;
+}
