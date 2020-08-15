@@ -1,0 +1,21 @@
+输入一个字符串，把该字符串的前三个字母移到最后
+#include "stdafx.h"
+#include "string.h"
+int main(int argc, char* argv[])
+{
+	char s1[10],s2[10];
+	int i;
+
+	scanf("%s",s1);
+	
+	strcpy(s2,s1);
+		
+	s2[3]='\0';
+
+	strcat(s1,s2);
+
+	printf("%s\n",s1+3);
+
+	return 0;
+}
+
