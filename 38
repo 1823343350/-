@@ -1,0 +1,28 @@
+求cosx的近似值
+#include<stdio.h>
+#include<math.h>
+
+double funcos(double e,double x)
+{double i,n,c,t,sum,a,z;
+ sum=0,c=1,t=1,a=1,z=1;
+ for(n=0;fabs(z)>=e;n=n+2)
+ {  t=c*pow(x,n);
+    a=1;
+    for(i=1;i<=n;i=i+1)
+    a=i*a;
+    z=t/a;
+    sum=sum+z;
+    c=-c;
+ }
+ return sum;
+}
+
+int main()
+{   double e,x,y;
+    printf("输入精度和自变量x\n");
+    scanf("%lf%lf",&e,&x);
+    
+    y=funcos(e,x);
+    
+    printf("cos%.3f的近似值为%lf",x,y);
+    return 0;
