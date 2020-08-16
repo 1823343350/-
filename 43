@@ -1,0 +1,20 @@
+判断n是不是质数(n>1)
+#include "stdafx.h"
+
+int main()
+{
+int n,i=0;
+i=i+2;
+scanf("%d",&n);
+
+if(n==2)
+     printf("n is a prime");
+else while (i<n && n%i!=0)
+     i=i+1;
+     if(i>=n)
+     printf("n is a prime");
+     else 
+     printf("n is not a prime");
+    
+     return 0;
+}
