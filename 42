@@ -1,0 +1,65 @@
+公约数与公倍数
+#include "stdafx.h"
+int main()
+{
+    int m,n,a,b;
+    scanf("%d",&m);
+    scanf("%d",&n);
+    
+    if(m>n)
+    {
+    {
+    {b=m;
+     if(b%n==0)
+    printf("最小公倍数是%d\n",b);
+     else
+    {do
+    b=b+1;
+    while(b%m!=0 || b%n!=0);
+    printf("最小公倍数是%d\n",b);}
+    }
+    }
+    }
+    if(m>n)
+    {
+    {a=n;
+     if(m%a==0)
+    printf("最大公约数是%d\n",a);
+     else
+    {do
+    a=a-1;
+    while(m%a!=0 || n%a!=0);
+    printf("最大公约数是%d\n",a);}
+    }
+    }
+
+    
+    
+    
+    if(m<n)
+    {b=n;
+     if(b%m==0)
+    printf("最小公倍数是%d\n",b);
+     else
+    {do
+    b=b+1;
+    while(b%m!=0 || b%n!=0);
+    printf("最小公倍数是%d\n",b);
+    }
+    }
+    if(m<n)
+    {a=m;
+     if(n%a==0)
+    printf("最大公约数是%d\n",a);
+     else 
+    {do
+    a=a-1;
+    while(m%a!=0 || n%a!=0);
+    printf("最大公约数是%d\n",a);
+    }
+    }
+    
+    
+    if(m==n)
+    printf("最大公约数与最小公倍数都为%d",n);
+    
