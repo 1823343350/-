@@ -1,6 +1,5 @@
 找出两组元素中的共有元素
-#include<stdio.h>
-
+#include "stdafx.h"
 int main()
 {   int m,n,i,k,c,d;
     printf("分别输入a,b两个数组的元素个数\n");
