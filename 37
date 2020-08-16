@@ -1,0 +1,59 @@
+3到7位的水仙花数
+#include<stdio.h>
+
+int main()
+{int a,b,c,d,e,f,g,n;
+    scanf("%d",&n);
+    
+    switch(n)
+    {
+    case 3:
+    {
+    for(a=1;a<=9;a++)
+    for(b=0;b<=9;b++)
+    for(c=0;c<=9;c++)
+    if (a*100+b*10+c==a*a*a+b*b*b+c*c*c)
+       printf("%d ",a*100+b*10+c);
+    }
+    case 4:
+    {
+    for(a=0;a<=9;a++)
+    for(b=0;b<=9;b++)
+    for(c=0;c<=9;c++)
+    for(d=1;d<=9;d++)
+    if (d*1000+a*100+b*10+c==pow(d,n)+pow(a,n)+pow(c,n)+pow(b,n))
+       printf("%d ",d*1000+a*100+b*10+c);
+    }
+    case 5:
+    {
+    for(a=0;a<=9;a++)
+    for(b=0;b<=9;b++)
+    for(c=0;c<=9;c++)
+    for(d=0;d<=9;d++)
+    for(e=1;e<=9;e++)
+    if (e*10000+d*1000+a*100+b*10+c==pow(a,n)+pow(b,n)+pow(c,n)+pow(d,n)+pow(e,n))
+       printf("%d ",e*10000+d*1000+a*100+b*10+c);
+    }
+    case 6:
+    {
+    for(a=0;a<=9;a++)
+    for(b=0;b<=9;b++)
+    for(c=0;c<=9;c++)
+    for(d=0;d<=9;d++)
+    for(e=0;e<=9;e++)
+    for(f=1;f<=9;f++)
+    if (f*100000+e*10000+d*1000+a*100+b*10+c==pow(f,n)+pow(a,n)+pow(b,n)+pow(c,n)+pow(d,n)+pow(e,n))
+       printf("%d ",f*100000+e*10000+d*1000+a*100+b*10+c);
+    }
+    case 7:
+    {
+    for(a=0;a<=9;a++)
+    for(b=0;b<=9;b++)
+    for(c=0;c<=9;c++)
+    for(d=0;d<=9;d++)
+    for(e=0;e<=9;e++)
+    for(f=0;f<=9;f++)
+    for(g=1;g<=9;g++)
+    if (g*1000000+f*100000+e*10000+d*1000+a*100+b*10+c==pow(f,n)+pow(g,n)+pow(a,n)+pow(b,n)+pow(c,n)+pow(d,n)+pow(e,n))
+       printf("%d ",g*1000000+f*100000+e*10000+d*1000+a*100+b*10+c);
+    }
