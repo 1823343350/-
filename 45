@@ -1,0 +1,21 @@
+求有多少个单词(不完善)
+#include "stdafx.h"
+
+int main()
+{ 
+    char op;
+    int b;
+    b=1;
+    
+    op=getchar();
+    
+    while(op!='.'){
+    if(op==' ')
+    b=b+1;
+    op=getchar();
+    }
+    
+    printf("%d",b);
+    return 0;
+}
+
