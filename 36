@@ -1,0 +1,33 @@
+统计2的个数
+#include "stdafx.h"
+
+int countdigit(int a,int b)
+{	
+	int z;
+	 z=a;
+ 	while(z>0)
+ 	 {
+		z=a%10;
+ 		a=a/10;
+  		if(z==2)
+  		{ 
+			  b=b+1;
+    			  z=a;
+ 		 }
+	}
+ return b;
+
+}
+
+int main()
+{   
+	int a,b,d;
+    	scanf("%d",&a);
+ 	b=0;
+    
+ 	d=countdigit(a,b);
+    
+  	printf("2的个数为%d",d);
+    
+   	return 0;
+}
