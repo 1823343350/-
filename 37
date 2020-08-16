@@ -1,5 +1,5 @@
 3到7位的水仙花数
-#include<stdio.h>
+#include "stdafx.h"
 
 int main()
 {int a,b,c,d,e,f,g,n;
