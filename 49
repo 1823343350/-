@@ -1,0 +1,38 @@
+用结构构造简单的复数
+#include "stdafx.h"
+
+struct shishu{
+	int shubu;
+	int xubu;
+};
+
+int main(int argc, char* argv[])
+{
+	struct shishu s1,s2,s3;
+	int n;
+
+	printf("默认为实部加虚部\n");
+	printf("输入第一个复数的实部和虚部:");
+	scanf("%d%d",&s1.shubu,&s1.xubu);
+	printf("输入第二个复数的实部和虚部:");
+	scanf("%d%d",&s2.shubu,&s2.xubu);
+
+	printf("1=相乘 2=相加\n");
+	scanf("%d",&n);
+	switch (n)
+	{
+	case 1:{
+		s3.shubu=s1.shubu*s2.shubu-s1.xubu*s2.xubu;
+		s3.xubu=s1.shubu*s2.xubu+s1.xubu*s2.shubu;break;			 
+			 }
+	case 2:{
+		s3.shubu=s1.shubu+s2.shubu;
+		s3.xubu=s1.xubu+s2.xubu;break;	   	   
+		   }
+		default :printf("输入错误:\n");break;
+	}
+
+	printf("结果为:%d+%di\n",s3.shubu,s3.xubu);
+
+	return 0;
+}
