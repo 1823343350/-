@@ -1,0 +1,36 @@
+用结构统计n个学生的成绩并输出平均分最高的学生的平均分
+#include "stdafx.h"
+struct student{
+	int num;
+	char name[20];
+	double math,english,computer;
+	double ave;
+};
+int main(int argc, char* argv[])
+{
+	struct student s1,max;
+	int i,n;
+
+	printf("输入人数:");
+	scanf("%d",&n);
+
+	printf("请依次输入学生的学号，姓名，数学，英语以及电脑成绩\n");
+	for(i=1;i<=n;i++)
+	{
+		printf("第%d个:",i);
+
+		scanf("%d%s%lf%lf%lf",&s1.num,s1.name,&s1.math,&s1.english,&s1.computer);
+
+		s1.ave=(s1.computer+s1.english+s1.math)/3.0;
+
+		if(i==1)
+			max=s1;
+		else
+			if(s1.ave>max.ave)
+				max=s1;
+	}
+
+	printf("平均分最高的学生:%s %d %lf\n",max.name,max.num,max.ave);
+
+	return 0;
+}
