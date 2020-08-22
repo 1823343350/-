@@ -1,0 +1,43 @@
+同50,将n个人的平均分从大到小输出,运用结构(冒泡排序)
+#include "stdafx.h"
+struct student{
+	char name[20];
+	double math,english,computer;
+	double ave;
+};
+
+int main(int argc, char* argv[])
+{
+	struct student s[10],min;
+	int i,n,k;
+
+	printf("输入学生人数:");
+	scanf("%d",&n);
+
+	for(i=0;i<n;i++)
+	{
+		printf("第%d个人",i);
+		printf("请输入姓名，数学，英语以及电脑成绩:");
+		scanf("%s%lf%lf%lf",s[i].name,&s[i].math,&s[i].english,&s[i].computer);
+		s[i].ave=(s[i].computer+s[i].english+s[i].math)/3.0;
+	}
+
+	for(i=0;i<n-1;i++)
+	{
+		for(k=0;k<n-i-1;k++)
+		{
+			if(s[k].ave>s[k+1].ave)
+			{
+				min=s[k];
+				s[k]=s[k+1];
+				s[k+1]=min;
+			}
+		}
+	}
+
+	printf("平均成绩排名:\n");
+	for(i=n-1;i>=0;i--)
+		printf("%s %lf\n",s[i].name,s[i].ave);
+
+	return 0;
+}
