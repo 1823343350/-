@@ -1,0 +1,95 @@
+//时间换算:输入一个时间数值然后输出时间和过n秒后的时间(应用结构)
+#include "stdafx.h"
+struct time{
+	int h;
+	int m;
+	int s;
+};
+int main(int argc, char* argv[])
+{	
+	int a,b,c,d;
+	int n;
+	struct time s1;
+	struct time *q;
+	q=&s1;
+	
+	printf("请依次输入时分秒");
+	scanf("%d%d%d",&q->h,&q->m,&q->s);
+
+	printf("再输入一个秒数");
+	scanf("%d",&n);
+
+	printf("初始时间:%d:%d:%d\n",q->h,q->m,q->s);
+
+	if(n<=60)
+	{
+		q->s=q->s+n;
+		if(q->s>=60)
+		{
+			q->s=q->s-60;
+			q->m++;
+		}
+		if(q->m>=60)
+		{
+			q->m=q->m-60;
+			q->h++;
+		}
+		if(q->h>=24)		
+			q->h=q->h-24;					
+		
+		printf("后来时间:%d:%d:%d\n",q->h,q->m,q->s);
+	}
+	else 
+		if(n<=3600)
+		{
+			a=n%60;
+			n=n/60;
+	
+			q->s+=a;
+			q->m+=n;
+
+			if(q->s>=60)
+			{
+				q->s=q->s-60;
+				q->m++;
+			}
+			if(q->m>=60)
+			{
+				q->m=q->m-60;
+				q->h++;
+			}
+			if(q->h>=24)		
+				q->h=q->h-24;					
+			
+			printf("后来时间:%d:%d:%d\n",q->h,q->m,q->s);
+		}
+		else
+		{
+			a=n%3600;
+			b=n/3600;
+			
+			c=a%60;
+			d=a/60;
+
+			q->h+=b;
+			q->m+=d;
+			q->s+=c;
+
+			if(q->s>=60)
+			{
+				q->s=q->s-60;
+				q->m++;
+			}
+			if(q->m>=60)
+			{
+				q->m=q->m-60;
+				q->h++;
+			}
+			if(q->h>=24)		
+				q->h=q->h-24;					
+			
+			printf("后来时间:%d:%d:%d\n",q->h,q->m,q->s);
+		}
+
+	return 0;
+}
