@@ -1,0 +1,26 @@
+汉诺塔问题,将n个盘子从A搬到B
+#include "stdafx.h"
+void fact(int n,char a,char b,char c);
+
+int main(int argc, char* argv[])
+{
+	
+	int n;
+
+	scanf("%d",&n);
+
+	fact(n,'A','B','C');
+
+	return 0;
+}
+void fact(int n,char a,char b,char c)
+{
+	if(n==1)
+		printf("%c-->%c\n",a,b);
+	else 
+	{
+		fact(n-1,a,c,b);
+		printf("%c-->%c\n",a,b);
+		fact(n-1,c,b,a);
+	}
+}
