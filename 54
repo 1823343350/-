@@ -1,0 +1,21 @@
+向量相加
+#include "stdafx.h"
+struct xiangliang
+{
+	double x;
+	double y;
+};
+
+int main(int argc, char* argv[])
+{
+	struct xiangliang a,b,c;
+
+	scanf("%lf%lf",&a.x,&a.y);
+	scanf("%lf%lf",&b.x,&b.y);
+
+	c.x=a.x+b.x,c.y=a.y+b.y;
+
+	printf("(%.0f,%.0f)+(%.0f,%.0f)=(%.0f,%.0f)\n",a.x,a.y,b.x,b.y,c.x,c.y);
+
+	return 0;
+}
