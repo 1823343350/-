@@ -1,0 +1,31 @@
+65Fabonacci函数(运用递归求斐波那契数列的第n个数,从第0个数开始)
+#include "stdafx.h"
+int ack(int n);
+int main(int argc, char* argv[])
+{
+	int n,result;
+
+	scanf("%d",&n);
+
+	result=ack(n);
+
+	printf("%d\n",result);
+
+	return 0;
+}
+
+int ack(int n)
+{	
+	int result=0; 
+
+
+	if(n==0) 
+		return 0;
+	else 
+		if(n==1) 
+			return 1;
+		else
+			result=result+ack(n-1)+ack(n-2);
+
+	return result;
+}
