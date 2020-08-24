@@ -1,0 +1,25 @@
+69 简单的查找
+#include "stdafx.h"
+#include "string.h"
+
+int main(int argc, char* argv[])
+{
+	char *s[5]={"zx","t","blue","a","red"};
+	char str[20];
+	int i;
+		
+	printf("查找:");
+	scanf("%s",str);
+
+	for(i=0;i<5;i++)
+		if(strcmp(str,s[i])==0)
+		{
+			printf("Found\n");
+			break;
+		}
+
+	if(i==5)
+		printf("Not Found\n");
+
+	return 0;
+}
