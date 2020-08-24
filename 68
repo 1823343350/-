@@ -1,0 +1,35 @@
+68 输入十个数，输出其中的质数
+#include "stdafx.h"
+void ack(int *p);
+int main(int argc, char* argv[])
+{
+	int a[10];
+	int i;
+
+	for(i=0;i<10;i++)
+		scanf("%d",&a[i]);
+
+	ack(a);
+
+	for(i=0;i<10;i++)
+		if((a[i]!=0) && (a[i]!=1))
+			printf("%d ",a[i]);
+
+	return 0;
+}
+
+void ack(int *p)
+{	
+	int i,k,a;
+
+	for(k=0;k<10;k++)
+	for(i=2;i<p[k];i++)
+	{
+		a=p[k]%i;
+		if(a==0)
+		{
+			p[k]=0;
+			break;
+		}
+	}
+}
