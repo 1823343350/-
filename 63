@@ -1,0 +1,29 @@
+63求x-x^2+x^3-x^4+...+(-1)^(n-1)*x^n
+#include "stdafx.h"
+#include "math.h"
+int fact(int x,int n);
+int main(int argc, char* argv[])
+{
+	int x,n;
+	int i,result,temp=0;
+
+	scanf("%d%d",&x,&n);
+	
+	for(i=1;i<=n;i++)
+	{
+		result=fact(x,i);
+		temp=temp+result*pow(-1,i+1);
+	}
+
+	printf("%d\n",temp);
+
+	return 0;
+}
+
+int fact(int x,int n)
+{
+	if(n==1)
+		return x;
+	else
+		return x*fact(x,n-1);
+}
