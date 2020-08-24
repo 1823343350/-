@@ -1,0 +1,24 @@
+62运用递归求x的n次方
+#include "stdafx.h"
+int fact(int x,int n);
+int main(int argc, char* argv[])
+{
+	int x,n;
+	int result;
+
+	scanf("%d%d",&x,&n);
+	
+	result=fact(x,n);
+
+	printf("%d\n",result);
+
+	return 0;
+}
+
+int fact(int x,int n)
+{
+	if(n==1)
+		return x;
+	else
+		return x*fact(x,n-1);
+}
