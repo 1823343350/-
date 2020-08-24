@@ -1,0 +1,30 @@
+67输入一个整数然后按位顺序输出
+#include "stdafx.h"
+void ack(int n);
+int main(int argc, char* argv[])
+{
+	int n,result;
+
+	scanf("%d",&n);
+
+	ack(n);
+
+	printf("\n");
+
+	return 0;
+}
+
+void ack(int n)
+{	
+	int a;
+
+	if(n==0)
+		printf("按位顺序输出:");
+	else
+	{
+		a=n%10;
+		n=n/10;
+		ack(n);
+		printf("%d",a);
+	}
+}
