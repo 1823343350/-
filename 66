@@ -1,0 +1,30 @@
+66 运用递归十进制转二进制
+#include "stdafx.h"
+void ack(int n);
+int main(int argc, char* argv[])
+{
+	int n,result;
+
+	scanf("%d",&n);
+
+	ack(n);
+
+	printf("\n");
+
+	return 0;
+}
+
+void ack(int n)
+{	
+	int a;
+
+	if(n==0)		
+		printf("二进制结果为:");	
+	else
+	{
+		a=n%2;
+		n=n/2;
+		ack(n);
+		printf("%d",a);
+	}
+}
