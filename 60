@@ -1,0 +1,41 @@
+1！+2！+3！+...+n!
+#include "stdafx.h"
+double fact(int n);
+int jiecheng(int i);
+int main(int argc, char* argv[])
+{
+	double n;
+	double result;
+
+	scanf("%lf",&n);
+
+	result=fact(n);
+
+	printf("%.0lf\n",result);
+
+	return 0;
+}
+
+double fact(int n)
+{
+	int i;
+	double result=0,temp;
+
+	for(i=1;i<=n;i++)
+	{
+		temp=jiecheng(i);
+		result=result+temp;
+	}
+	 return result;
+}
+
+int jiecheng(int i)
+{
+	double k;
+	double result=1.0;
+
+	for(k=1.0;k<=i;k++)
+		result=result*k;
+
+	return result;
+}
