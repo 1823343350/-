@@ -1,0 +1,77 @@
+单向链表操作 修改一个学生的信息
+#include "stdafx.h"
+#include "stdlib.h"
+struct student{
+	int num;
+	char name[20];
+	double score;
+	struct student *next;
+};
+int main(int argc, char* argv[])
+{
+	int temp;
+	struct student *p;
+	struct student *Head,*q;//辅助用
+	p=(struct student *)malloc(sizeof(struct student));
+	Head=p;
+	q=p;
+	printf("请输入学号姓名成绩:(学号为0就返回)\n");
+	scanf("%d%s%lf",&p->num,p->name,&p->score);
+	Head->next=NULL;
+
+	while(p->num!=0)
+	{
+		p=(struct student *)malloc(sizeof(struct student));
+		printf("请输入下一个学生的学号姓名成绩(学号为0就返回):\n");
+		scanf("%d%s%lf",&p->num,p->name,&p->score);
+
+		p->next=q;
+		q=p;	
+	}
+
+	q=p->next;
+
+	printf("输入需要修改的学生的学号:\n");
+	scanf("%d",&temp);
+
+	while(q!=NULL)
+	{
+		if(q->num==temp)
+		{
+			printf("已找到,该学生信息如下:\n");
+			printf("%d %s %lf",q->num,q->name,q->score);
+			printf("是否需要修改(y or n?):");
+			getchar();
+			char ch;
+			ch=getchar();
+
+			if((ch=='y') || (ch=='Y'))
+			{
+				printf("请输入新的学号姓名成绩:");
+				scanf("%d%s%lf",&q->num,q->name,&q->score);
+				break;
+			}
+			else
+			{
+				printf("取消修改,即将结束\n");
+				return 0;//暂时用return 0代替
+			}
+		}
+		q=q->next;
+	}
+
+	if(q==NULL)
+		printf("Not Found\n");
+
+	q=p->next;
+
+	while(q!=NULL)
+	{
+		printf("%d %s %lf\n",q->num,q->name,q->score);
+		q=q->next;	
+	}
+
+	
+	return 0;
+}
+
