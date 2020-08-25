@@ -1,0 +1,24 @@
+将五个字符串从小到大排序后输出
+#include "stdafx.h"
+#include "string.h"
+int main(int argc, char* argv[])
+{
+	char *p[5]={"red","blue","black","yellow","orange"};
+	char *temp;
+	int i,j;
+
+
+	for(i=1;i<5;i++)
+		for(j=0;j<5-i;j++)
+			if(strcmp(p[j],p[j+1])>0)
+			{
+				temp=p[j];
+				p[j]=p[j+1];
+				p[j+1]=temp;
+			}
+
+	for(i=0;i<5;i++)
+		printf("%s ",p[i]);
+
+	return 0;
+}
