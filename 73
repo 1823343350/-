@@ -1,0 +1,40 @@
+单项链表的建立，输入学生信息并且逆序输出
+#include "stdafx.h"
+#include "stdlib.h"
+struct student{
+	int num;
+	char name[20];
+	double score;
+	struct student *next;
+};
+int main(int argc, char* argv[])
+{
+	struct student *p;
+	struct student *Head,*q;//辅助用
+	p=(struct student *)malloc(sizeof(struct student));
+	Head=p;
+	q=p;
+	printf("请输入学号姓名成绩:(学号为0就返回)\n");
+	scanf("%d%s%lf",&p->num,p->name,&p->score);
+	Head->next=NULL;
+
+	while(p->num!=0)
+	{
+		p=(struct student *)malloc(sizeof(struct student));
+		printf("请输入下一个学生的学号姓名成绩(学号为0就返回):\n");
+		scanf("%d%s%lf",&p->num,p->name,&p->score);
+
+		p->next=q;
+		q=p;	
+	}
+
+	q=p->next;
+
+	while(q!=NULL)
+	{
+		printf("%d %s %lf\n",q->num,q->name,q->score);
+		q=q->next;	
+	}
+	
+	return 0;
+}
