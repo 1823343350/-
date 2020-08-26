@@ -1,0 +1,30 @@
+82同81,读变成写
+#include "stdafx.h"
+#include "stdlib.h"
+
+int main(int argc, char* argv[])
+{
+	char name[20];
+	int i,ave=0,num,score;
+	FILE *fp;
+	
+	if((fp=fopen("E:\\a.txt","w"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+
+	for(i=0;i<2;i++)
+	{
+		scanf("%d%s%d",&num,name,&score);
+		fprintf(fp,"%d %s %d\n",num,name,score);
+	}
+
+	if(fclose(fp))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	return 0;
+}
