@@ -1,0 +1,29 @@
+85输入以#为结束符的一段内容,并保存到文件中
+#include "stdafx.h"
+#include "stdlib.h"
+
+int main(int argc, char* argv[])
+{
+
+	char ch;
+	FILE *fp1,*fp2;
+
+
+	
+	if((fp1=fopen("E:\\c.txt","w"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+	
+	while((ch=getchar())!='#')
+		fputc(ch,fp1);
+
+	if(fclose(fp1))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	return 0;
+}
