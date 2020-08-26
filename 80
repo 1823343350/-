@@ -1,0 +1,46 @@
+#include "stdafx.h"
+#include "stdlib.h"
+#include "string.h"
+
+char *match(char *s,char t1,char t2);
+
+int max_len(char *s[],int n);
+int main(int argc, char* argv[])
+{
+	char s[20],t1,t2,*p;
+
+    scanf("%s\n", s);
+    scanf("%c %c", &t1,&t2);
+    p = match(s,t1,t2);
+    printf("%s\n", p);
+
+    return 0;
+}
+
+char *match(char *s,char t1,char t2)
+{
+	int i,max=0,min=0;
+	int temp1,temp2;
+	char *p;
+	p=s;
+
+	for(i=0;s[i]!='\0';i++)
+	{
+		if((s[i]==t1) && (min==0))
+		{
+			min=1;
+			temp1=i;
+		}
+		else
+			if((s[i]==t2) && (max==0))
+		{
+			max=1;
+			temp2=i;
+		}	
+	}
+
+	*(p+temp2+1)='\0';
+	p=p+temp1;
+
+	return p;
+}
