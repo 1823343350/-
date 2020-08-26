@@ -1,0 +1,33 @@
+81在e盘创建一个名为a.txt的文件,然后读取其中的数据并输出(需要在d盘提前准备好两个数据,按照学号 姓名 成绩写入)
+#include "stdafx.h"
+#include "stdlib.h"
+
+int main(int argc, char* argv[])
+{
+	char name[20];
+	int i,ave=0,num,score;
+	FILE *fp;
+	
+	if((fp=fopen("E:\\a.txt","r"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+
+	for(i=0;i<2;i++)
+	{
+		fscanf(fp,"%d%s%d",&num,name,&score);
+		ave=ave+score;
+		printf("%d %s %d\n",num,name,score);
+	}
+
+	printf("平均分:%d\n",ave/2);
+
+	if(fclose(fp))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	return 0;
+}
