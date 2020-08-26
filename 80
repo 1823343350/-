@@ -8,7 +8,7 @@ char *match(char *s,char t1,char t2);
 int max_len(char *s[],int n);
 int main(int argc, char* argv[])
 {
-	char s[20],t1,t2,*p;
+    char s[20],t1,t2,*p;
 
     scanf("%s\n", s);
     scanf("%c %c", &t1,&t2);
