@@ -1,0 +1,44 @@
+84从将e盘的a.txt文本的内容复制给b.txt
+#include "stdafx.h"
+#include "stdlib.h"
+#include "string.h"
+
+int main(int argc, char* argv[])
+{
+
+	char ch;
+	FILE *fp1,*fp2;
+
+	if((fp2=fopen("E:\\b.txt","w"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+	
+	if((fp1=fopen("E:\\a.txt","r"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+	
+	while(!feof(fp1))
+	{
+		ch=fgetc(fp1);
+		if(ch!=EOF)
+			fputc(ch,fp2);
+	}
+
+	if(fclose(fp1))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	if(fclose(fp2))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	return 0;
+}
