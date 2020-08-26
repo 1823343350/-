@@ -1,0 +1,34 @@
+83输入两个用户名和密码,然后将密码加密,再保存到文件中
+#include "stdafx.h"
+#include "stdlib.h"
+#include "string.h"
+
+int main(int argc, char* argv[])
+{
+	char name[20];
+	char mima[20];
+	int i,k;
+	FILE *fp;
+	
+	if((fp=fopen("E:\\a.txt","w"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+
+	for(i=0;i<2;i++)
+	{
+		scanf("%s%s",name,mima);
+		for(k=0;k<strlen(mima);k++)
+			mima[k]=mima[k]^15;
+		fprintf(fp,"%s %s\n",name,mima);
+	}
+
+	if(fclose(fp))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	return 0;
+}
