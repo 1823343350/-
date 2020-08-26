@@ -1,0 +1,16 @@
+输入月份,输出月份对应的英文,要求用指针类型的数组
+#include "stdafx.h"
+
+int main(int argc, char* argv[])
+{
+	char *s[12]={"January","February","March","April","may","june","july","August","September","October","November","December"};
+	int i;
+
+	printf("输入月份:");
+
+	scanf("%d",&i);
+
+	printf("%s\n",s[i-1]);
+	
+	return 0;
+}
