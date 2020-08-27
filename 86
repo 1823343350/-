@@ -1,0 +1,61 @@
+86从e盘中读取两个文本文件比较内容是否相同,如果不同输入是哪一行那一列开始不同的
+#include "stdafx.h"
+#include "stdlib.h"
+
+int main(int argc, char* argv[])
+{
+	FILE *fp1,*fp2;
+	char ch1,ch2;
+	int h=1,l=0,t=0,k=0;
+
+	if((fp1=fopen("e:\\a.txt","r"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+	
+	if((fp2=fopen("e:\\b.txt","r"))==NULL)
+	{
+		printf("打开失败\n");
+		exit(0);
+	}
+
+	while((t==0)&&(!feof(fp1))&&(!feof(fp2)))
+	{
+		ch1=fgetc(fp1);
+		ch2=fgetc(fp2);
+	
+		if((ch1=='\n') && (ch2=='\n'))
+		{
+			h++;
+			l=0;
+		}
+
+		if(ch1==ch2)	
+			l++;
+	
+		if(ch1!=ch2)
+		{
+			printf("第%d行第%d列开始不同\n",h,l);
+			t=1;
+			k=1;
+		}
+	}
+	
+	if(feof(fp1) && feof(fp2) && k==0)
+		printf("完全相同\n");			
+	
+	if(fclose(fp1))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	if(fclose(fp2))
+	{
+		printf("关闭失败\n");
+		exit(0);
+	}
+
+	return 0;
+}
