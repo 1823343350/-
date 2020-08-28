@@ -1,0 +1,26 @@
+88判断三点是否共线,根据任意两点的斜率是否相等判断
+#include "stdafx.h"
+struct point
+{
+	double x;
+	double y;
+};
+
+int main(int argc, char* argv[])
+{
+	struct point a[3];
+
+	printf("输入第一个点的坐标:");
+	scanf("%lf%lf",&a[0].x,&a[0].y);
+	printf("输入第二个点的坐标:");
+	scanf("%lf%lf",&a[1].x,&a[1].y);
+	printf("输入第三个点的坐标:");
+	scanf("%lf%lf",&a[2].x,&a[2].y);
+
+	if((a[1].y-a[0].y)/(a[1].x-a[0].x)==(a[2].y-a[0].y)/(a[2].x-a[0].x))
+		printf("三点共线\n");
+	else
+		printf("三点不共线\n");
+
+	return 0;
+}
