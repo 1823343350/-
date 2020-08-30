@@ -1,0 +1,17 @@
+91-1/2+1/3-…+1/n求和公式
+5#include"stdafx.h"
+
+int main()
+{
+  int i,n;
+  float s=0;
+  
+  scanf("%d",&n);
+  
+  for(i=1;i<=n;i++)
+  if(i%2)s+=1.0/i;
+     else s-=1.0/i;
+     
+  printf("%f\n",s);
+  return 0;
+}
