@@ -1,4 +1,4 @@
-1.输入2个正整数m和n，求bai其最大公du约数和最小公倍数
+91输入2个正整数m和n，求bai其最大公du约数和最小公倍数
 #include stdafx.h
 int main()
 {
