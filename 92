@@ -1,0 +1,13 @@
+92编程输出所有三位数中的素数。
+#include
+int main(void)
+{
+int x,i;
+for(x=100;x<=999;x++)
+{
+for(i=2;i<x/2;i++)
+if(x%i==0)break;
+if(i==x/2)printf("%d ",x);
+}
+return 0;
+}
