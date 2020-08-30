@@ -1,0 +1,19 @@
+93编写函数mypow，求整型变量x的y次方。(要求包括能使程序正常运行的主函数)
+#include
+int main(void)
+{
+int mypow(int,int);
+int x,y,s;
+scanf("%d%d",&x,&y);
+s=mypow(x,y);
+printf("%d的%d次方是 %d\n",x,y,s);
+return 0;
+}
+int mypow(int x,int y)
+{
+int sum,i;
+sum=1;
+for(i=1;i<=y;i++)
+sum=sum*x;
+return sum;
+}
