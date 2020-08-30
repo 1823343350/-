@@ -1,0 +1,10 @@
+94输入一个3位整数，输出它的逆序数。例如，输入127，输出应该是721。
+#include
+int main(void)
+{
+int x,y;
+scanf("%d",&x);
+y=x/100+x/10%10*10+x%10*100;
+printf("%d的逆序数 %d\n",x,y);
+return 0;
+}
