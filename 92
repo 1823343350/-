@@ -1,5 +1,5 @@
 92编程输出所有三位数中的素数。
-#include
+#include "stdafx.h"
 int main(void)
 {
 int x,i;
