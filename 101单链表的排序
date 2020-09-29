@@ -1,0 +1,145 @@
+// 245654.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "stdlib.h"
+#include "string.h"
+
+void exit();
+int input(struct student *p);
+void output(struct student *p);
+void ave(struct student *p);
+void paixu(int n,struct student *p);
+
+struct student
+{
+	int num;
+	char name[10];
+	double yuwen,shuxue,yingyu;
+	struct student *next;
+	double ave;
+};
+
+int main(int argc, char* argv[])
+{
+	struct student *Head,*p;
+	Head=(struct student *)malloc(sizeof(struct student));
+	int a,n;
+
+	while(1)
+	{
+		p=Head;
+		printf("	   zhucaidan		\n");
+		printf("1.input			2.output\n");
+		printf("3.paixu			4.ave	\n");
+		printf("0.exit\n");
+	
+		printf("请输入:");
+		scanf("%d",&a);
+
+		switch(a)
+		{
+			case 0:exit(0);
+			case 1:n=input(p);break;
+			case 2:output(p);break;
+			case 3:paixu(n,p);break;
+			case 4:ave(p);break;
+			default:printf("输入错误,请重新输入\n");
+		}
+		system("cls");
+	}
+	return 0;
+}
+
+void exit()
+{
+	exit(0);
+}
+
+int input(struct student *p)
+{
+	int n,i;
+	struct student *q;
+	printf("请输入需要输入的人数:");
+	scanf("%d",&n);
+
+	for(i=0;i<n;i++)
+	{
+		q=(struct student *)malloc(sizeof(struct student));
+		printf("请输入该学生的学号:");
+		scanf("%d",&q->num);
+		printf("请输入该学生的姓名:");
+		scanf("%s",q->name);
+		printf("请输入该学生的语文 数学 英语成绩:");
+		scanf("%lf%lf%lf",&q->yuwen,&q->shuxue,&q->yingyu);
+		p->next=q;
+		p=q;
+		q->next=NULL;
+	}
+
+	return n;
+
+}
+
+void output(struct student *p)
+{
+	p=p->next;
+
+	printf("学号	姓名	语文	数学	英语	平均分\n");
+	
+	while(p!=NULL)
+	{
+		printf("%d	%s	%.0lf	%.0lf	%.0lf	%.0lf\n",p->num,p->name,p->yuwen,p->shuxue,p->yingyu,p->ave);
+		p=p->next;
+	}
+	system("pause");
+}
+
+void paixu(int n,struct student *p)
+{
+	int i;
+	struct student *head;
+	struct student *q,*t,*s;
+
+	head=p;
+
+	for(i=1;i<n;i++)
+	{
+		q=head->next;
+		t=q;
+
+		while(q!=NULL)
+		{
+			if(t->num>q->num)
+				t=q;
+			q=q->next;		
+		}
+
+		if(t!=head->next)
+		{
+			s=head;
+			while(s->next!=t)
+				s=s->next;
+			s->next=t->next;
+			t->next=head->next;
+		}
+		
+		head->next=t;
+		head=t;		
+	}
+	
+}
+
+void ave(struct student *p)
+{
+	double ave;
+	int n=0;
+
+	while(p!=NULL)
+	{
+		ave=(p->yuwen+p->shuxue+p->yingyu)/3.0;
+		p->ave=ave;
+		p=p->next;
+	}
+
+}
