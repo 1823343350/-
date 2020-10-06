@@ -1,0 +1,169 @@
+#include "stdafx.h"
+#include "stdlib.h"
+
+typedef struct 
+{
+	int *elem;
+	int length;
+	int listsize;
+}Sqlist;
+
+int CreateNullList(Sqlist &l);
+void CreateList(Sqlist &l,int n);
+void OutputList(Sqlist &l);
+void InsertList(Sqlist &l);
+void Delete(Sqlist &l);
+void Found(Sqlist &l);
+
+int main(int argc, char* argv[])
+{
+	Sqlist l;
+
+	while(1)
+	{
+		printf("	动态顺序表	\n");
+		printf("1.创建空表	2.输入n个元素\n");
+		printf("3.输出顺序表	4.插入\n");
+		printf("5.删除		6.查找\n");
+		printf("0.结束\n");
+		printf("请选择:");
+
+		int a,b;
+		scanf("%d",&a);
+
+		switch(a)
+		{
+			case 1:
+				b=CreateNullList(l);
+				if(b==1)
+					printf("创建成功!\n");
+				else
+					printf("创建失败!\n");
+				system("pause");
+				break;
+			case 2:
+				int n;
+				printf("需要输入几个元素?\n");
+				scanf("%d",&n);
+				CreateList(l,n);
+				break;
+			case 3:
+				OutputList(l);
+				break;
+			case 4:
+				InsertList(l);
+				;break;
+
+			case 5:
+				Delete(l);
+				break;
+			case 6:
+				Found(l);
+				break;
+			case 0:
+				exit(0);
+				break;
+		}
+		system("cls");
+	}
+	return 0;
+}
+
+int CreateNullList(Sqlist &l)
+{
+	l.elem=(int *)malloc(10*sizeof(int));
+	if(!l.elem)
+		return 0;	
+	l.length=0;
+	l.listsize=10;
+	return 1;
+}
+
+void CreateList(Sqlist &l,int n)
+{
+	int i;
+
+	if(n>l.listsize)
+	{
+		l.elem=(int *)realloc(l.elem,(n-l.length)*sizeof(int));
+		l.listsize=n;
+	}
+
+
+
+	printf("请输入%d个整形元素\n",n);
+
+	for(i=0;i<n;i++)	
+		scanf("%d",&l.elem[i]);
+
+	l.length=n;
+}
+
+void OutputList(Sqlist &l)
+{
+	int i;
+
+	for(i=0;i<l.length;i++)	
+		printf("%d ",l.elem[i]);
+	printf("\n");
+	system("pause");
+}
+
+void InsertList(Sqlist &l)
+{
+	int q,num,i;
+
+	printf("请输入需要插入的位置(在该位置的前面插入):");
+	scanf("%d",&q);
+
+	printf("请输入需要插入的数:");
+	scanf("%d",&num);
+
+	if(l.length==l.listsize)
+	{
+		l.elem=(int *)realloc(l.elem,10*sizeof(int));
+		l.listsize+=10;
+	}
+
+	for(i=l.length-1;i>=q-1;i--)	
+		l.elem[i+1]=l.elem[i];
+	
+	l.elem[i+1]=num;
+
+	l.length++;
+
+}
+
+void Delete(Sqlist &l)
+{
+	int a,i;
+
+	printf("请输入需要删除的元素的位置:");
+	scanf("%d",&a);
+
+	for(i=a-1;i<l.length;i++)	
+		l.elem[i]=l.elem[i+1];
+
+	l.length--;
+
+}
+
+void Found(Sqlist &l)
+{
+	int a,i;
+
+	printf("请输入需要查找的元素");
+	scanf("%d",&a);
+
+	for(i=0;i<l.length;i++)
+		if(l.elem[i]==a)	
+		{
+			printf("这是第%d个元素\n",i+1);
+			i=l.length+1;
+		}
+
+	if(i==l.length)
+		printf("未找到\n");
+		
+	system("pause");
+}
