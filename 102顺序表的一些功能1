@@ -1,3 +1,9 @@
+/*
+补充:typedef的作用就是简化输入,比如typedef int sta;以后要构造一个int类型的数据就可以用 sta a;来构造。
+     指针可以当数组来使用，在下面的结构体中定义了一个指针elem，然后用l.elem=(int *)malloc(10*sizeof(int));开辟了十个内存空间，可以直接用l.elem[1],l.elem[n](n为数字)来调用这个单元
+     malloc 开辟内存空间
+     realloc 重新分配内存空间 (int *)relloc(l.elem,10*sizeof(int));就表示在l.elem指向的地址处在添加10个整形空间,(如果l.elem处已经有了若干个空间，就在这些空间后面添加新加入的空间)
+*/
 #include "stdafx.h"
 #include "stdlib.h"
 
